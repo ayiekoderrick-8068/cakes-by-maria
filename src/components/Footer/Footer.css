@@ -1,0 +1,70 @@
+.site-footer {
+  background: var(--color-plum-dark);
+  color: var(--color-lavender-soft);
+  margin-top: 64px;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 32px;
+  padding: 52px 20px 32px;
+  grid-template-columns: 1fr;
+}
+
+.site-footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-white);
+}
+
+.site-footer__logo em {
+  font-style: italic;
+  color: var(--color-lavender);
+}
+
+.site-footer__brand p {
+  color: rgba(241, 221, 244, 0.75);
+  margin-top: 8px;
+}
+
+.site-footer h4 {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.site-footer ul li {
+  margin-bottom: 10px;
+}
+
+.site-footer a {
+  color: rgba(241, 221, 244, 0.85);
+  transition: color var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: var(--color-white);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px 28px;
+  border-top: 1px solid rgba(241, 221, 244, 0.15);
+  font-size: 0.85rem;
+  color: rgba(241, 221, 244, 0.65);
+}
+
+@media (min-width: 720px) {
+  .site-footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

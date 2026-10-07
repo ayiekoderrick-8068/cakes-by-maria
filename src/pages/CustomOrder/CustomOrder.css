@@ -1,0 +1,22 @@
+.custom-order__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 32px;
+}
+
+.custom-order__grid > * {
+  min-width: 0;
+}
+
+.custom-order__policies {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .custom-order__grid {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}

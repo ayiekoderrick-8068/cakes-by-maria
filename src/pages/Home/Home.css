@@ -1,0 +1,70 @@
+.section--tinted {
+  background: var(--color-lavender-soft);
+}
+
+.occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cake-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.home-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.home-banner {
+  background: var(--color-plum);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.home-banner h2,
+.home-banner .eyebrow {
+  color: var(--color-white);
+}
+
+.home-banner .eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.home-banner p {
+  color: rgba(241, 221, 244, 0.9);
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+@media (min-width: 640px) {
+  .occasion-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .cake-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cake-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .occasion-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}

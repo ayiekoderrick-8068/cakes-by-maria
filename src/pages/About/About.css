@@ -1,0 +1,37 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.about__media {
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about__media .cake-image {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.about__copy p {
+  font-size: 1.02rem;
+}
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+@media (min-width: 960px) {
+  .about__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .about__media {
+    max-width: none;
+  }
+}

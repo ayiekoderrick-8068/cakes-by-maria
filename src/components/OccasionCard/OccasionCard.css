@@ -1,0 +1,31 @@
+.occasion-card {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+}
+
+.occasion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.occasion-card__image {
+  border-radius: 0;
+}
+
+.occasion-card__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 12px 12px;
+  background: linear-gradient(180deg, transparent, rgba(36, 27, 37, 0.78));
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+}

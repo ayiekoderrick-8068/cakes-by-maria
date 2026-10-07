@@ -1,0 +1,32 @@
+.policy-list {
+  background: var(--color-lavender-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 26px 24px;
+}
+
+.policy-list h3 {
+  margin-bottom: 14px;
+}
+
+.policy-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.policy-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  color: var(--color-charcoal);
+}
+
+.policy-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-plum);
+  font-weight: 700;
+}
