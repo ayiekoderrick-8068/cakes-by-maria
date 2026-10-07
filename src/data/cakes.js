@@ -1,18 +1,17 @@
 import { flavourRate } from "./flavours";
 
-import mintChocolate25kg from "../assets/cakes/mint-chocolate-25kg.png";
-import bentoChocolateImg from "../assets/cakes/bento-chocolate.png";
+import bentoChocolateImg from "../assets/cakes/bento-chocolate-hd.jpg";
 import vanilla1kgImg from "../assets/cakes/vanilla-1kg.png";
-import pinaColada2kgImg from "../assets/cakes/pinacolada-chocolate-2kg.png";
-import mintChocolate1kgImg from "../assets/cakes/mint-chocolate-1kg.png";
-import vanillaChocolate15kgImg from "../assets/cakes/vanilla-chocolate-15kg.png";
-import chocolateCake1kgImg from "../assets/cakes/chocolate-cake-1kg.png";
+import pinaColada2kgImg from "../assets/cakes/pinacolada-chocolate-2kg-hd.jpg";
+import mintChocolateImg from "../assets/cakes/mint-chocolate-hd.jpg";
+import vanillaChocolate15kgImg from "../assets/cakes/vanilla-chocolate-15kg-hd.jpg";
+import chocolateCake1kgImg from "../assets/cakes/chocolate-cake-1kg-hd.jpg";
 
 /**
  * The signature cakes from the business's real WhatsApp catalogue — fixed
  * prices, shown on the homepage "Popular Cakes" section and in the full
- * catalogue. Photos are real catalogue thumbnails (low-res; swap for
- * higher-resolution originals in src/assets/cakes when available).
+ * catalogue. Photos are real catalogue photos supplied by the business
+ * (vanilla-cake still uses a low-res crop pending a better original).
  */
 export const signatureCakes = [
   {
@@ -23,7 +22,7 @@ export const signatureCakes = [
     price: 5500,
     categories: ["birthday", "corporate"],
     featured: true,
-    image: mintChocolate25kg,
+    image: mintChocolateImg,
   },
   {
     id: "bento-chocolate",
@@ -53,7 +52,7 @@ export const signatureCakes = [
     price: 2500,
     categories: ["birthday"],
     featured: false,
-    image: mintChocolate1kgImg,
+    image: mintChocolateImg,
   },
   {
     id: "pina-colada-chocolate",
