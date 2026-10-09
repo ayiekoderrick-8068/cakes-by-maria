@@ -66,3 +66,7 @@
     margin: 0 0 0 auto;
   }
 }
+
+.hero__media .cake-image img {
+  object-position: 50% 55%;
+}
