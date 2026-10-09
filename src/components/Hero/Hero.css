@@ -1,6 +1,6 @@
 .hero {
-  background: radial-gradient(circle at 85% 15%, var(--color-lavender) 0%, var(--color-cream) 55%);
-  padding: 48px 0 56px;
+  background: var(--color-cream);
+  padding: 40px 0 56px;
 }
 
 .hero__grid {
@@ -9,58 +9,60 @@
   align-items: center;
 }
 
-.hero__badge {
-  display: inline-block;
-  background: var(--color-white);
-  color: var(--color-purple);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 18px;
+.hero__copy h1 {
+  margin-bottom: 0.45em;
 }
 
-.hero__copy h1 {
-  margin-bottom: 0.4em;
+.hero__copy h1 em {
+  font-style: italic;
+  color: var(--color-mauve-text);
 }
 
 .hero__copy p {
   font-size: 1.1rem;
-  max-width: 480px;
+  max-width: 460px;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .hero__media {
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
+}
+
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 18px -14px -14px 18px;
+  border: 1.5px solid var(--color-mauve);
+  border-radius: 200px 200px var(--radius-lg) var(--radius-lg);
+  opacity: 0.5;
+  z-index: 0;
 }
 
 .hero__media .cake-image {
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+  border-radius: 200px 200px var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 @media (min-width: 960px) {
   .hero {
-    padding: 72px 0 90px;
+    padding: 72px 0 88px;
   }
   .hero__grid {
     grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
   }
   .hero__media {
-    max-width: none;
-  }
-  .hero__media .cake-image {
-    aspect-ratio: 1 / 1;
+    margin: 0 0 0 auto;
   }
 }

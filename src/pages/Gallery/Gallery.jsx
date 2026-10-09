@@ -9,6 +9,8 @@ import "./Gallery.css";
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("all");
 
+  const filledCategories = galleryCategories.filter((c) => galleryItems.some((item) => item.category === c.slug));
+
   const items =
     activeCategory === "all" ? galleryItems : galleryItems.filter((item) => item.category === activeCategory);
 
@@ -30,7 +32,7 @@ export default function Gallery() {
       <section className="section">
         <div className="container">
           <div className="gallery-page__filter">
-            <CategoryFilter categories={galleryCategories} active={activeCategory} onChange={setActiveCategory} />
+            <CategoryFilter categories={filledCategories} active={activeCategory} onChange={setActiveCategory} />
           </div>
           <GalleryGrid items={items} />
         </div>

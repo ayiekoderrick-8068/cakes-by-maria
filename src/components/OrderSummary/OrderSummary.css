@@ -1,4 +1,4 @@
-.order-summary {
+﻿.order-summary {
   position: sticky;
   top: calc(var(--header-height) + 20px);
   background: var(--color-plum);
@@ -15,7 +15,7 @@
 }
 
 .order-summary__empty {
-  color: rgba(241, 221, 244, 0.75);
+  color: rgba(232, 220, 208, 0.75);
   font-size: 0.92rem;
 }
 
@@ -31,12 +31,12 @@
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(241, 221, 244, 0.2);
+  border-bottom: 1px solid rgba(232, 220, 208, 0.2);
 }
 
 .order-summary__row dt {
   font-weight: 600;
-  color: rgba(241, 221, 244, 0.8);
+  color: rgba(232, 220, 208, 0.8);
 }
 
 .order-summary__row dd {
@@ -47,8 +47,8 @@
 }
 
 .order-summary__deposit {
-  background: rgba(241, 221, 244, 0.14);
-  border: 1px solid rgba(241, 221, 244, 0.3);
+  background: rgba(232, 220, 208, 0.14);
+  border: 1px solid rgba(232, 220, 208, 0.3);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   font-size: 0.88rem;

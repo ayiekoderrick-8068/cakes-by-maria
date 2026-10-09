@@ -10,7 +10,7 @@ export default function GalleryGrid({ items }) {
     <div className="gallery-grid">
       {items.map((item) => (
         <figure className="gallery-grid__item" key={item.id}>
-          <CakeImage name={item.title} alt={item.title} ratio={item.ratio} />
+          <CakeImage src={item.image} name={item.title} alt={item.title} ratio={item.ratio} />
         </figure>
       ))}
     </div>

@@ -1,39 +1,40 @@
 .site-footer {
-  background: var(--color-plum-dark);
-  color: var(--color-lavender-soft);
-  margin-top: 64px;
+  background: var(--color-beige);
+  color: var(--color-cocoa);
+  margin-top: 0;
 }
 
 .site-footer__grid {
   display: grid;
   gap: 32px;
-  padding: 52px 20px 32px;
+  padding: 56px 20px 36px;
   grid-template-columns: 1fr;
 }
 
 .site-footer__logo {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--color-white);
+  font-size: 1.4rem;
+  color: var(--color-cocoa);
 }
 
 .site-footer__logo em {
   font-style: italic;
-  color: var(--color-lavender);
+  color: var(--color-mauve-text);
 }
 
 .site-footer__brand p {
-  color: rgba(241, 221, 244, 0.75);
+  color: var(--color-muted);
   margin-top: 8px;
 }
 
 .site-footer h4 {
-  color: var(--color-white);
+  color: var(--color-cocoa);
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .site-footer ul li {
@@ -41,12 +42,14 @@
 }
 
 .site-footer a {
-  color: rgba(241, 221, 244, 0.85);
+  color: var(--color-muted);
   transition: color var(--transition-fast);
 }
 
 .site-footer a:hover {
-  color: var(--color-white);
+  color: var(--color-cocoa);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .site-footer__bottom {
@@ -54,9 +57,13 @@
   flex-direction: column;
   gap: 6px;
   padding: 18px 20px 28px;
-  border-top: 1px solid rgba(241, 221, 244, 0.15);
+  border-top: 1px solid rgba(57, 46, 50, 0.14);
   font-size: 0.85rem;
-  color: rgba(241, 221, 244, 0.65);
+  color: var(--color-muted);
+}
+
+.site-footer__bottom p {
+  margin: 0;
 }
 
 @media (min-width: 720px) {
