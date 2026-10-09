@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Hero.css";
 import CakeImage from "../CakeImage/CakeImage";
 import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
-import heroImg from "../../assets/gallery/butterfly-pink.jpg";
+import heroImg from "../../assets/gallery/oreo-drip.jpg";
 
 export default function Hero() {
   return (
@@ -25,7 +25,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero__media">
-          <CakeImage src={heroImg} name="Cakes by Maria" alt="A pink ombre butterfly celebration cake by Cakes by Maria" ratio="4 / 5" />
+          <CakeImage src={heroImg} name="Cakes by Maria" alt="A chocolate drip celebration cake with a gold Happy Birthday topper by Cakes by Maria" ratio="4 / 5" />
         </div>
       </div>
     </section>

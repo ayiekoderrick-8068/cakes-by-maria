@@ -42,7 +42,7 @@ export default function Home() {
       />
       <Hero />
 
-      <section className="section section--tinted">
+      <section className="section section--tinted section--compact">
         <div className="container">
           <div className="section-heading">
             <span className="eyebrow">Shop by Occasion</span>

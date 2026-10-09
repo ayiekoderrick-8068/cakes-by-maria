@@ -2,21 +2,29 @@
   background: var(--color-beige);
 }
 
+.section--compact {
+  padding: 44px 0 48px;
+}
+
+.section--compact .section-heading {
+  margin-bottom: 26px;
+}
+
+/* Centred flex grid: 2 / 3 / 5 cards per row, so the last row is always centred (5 + 4 on desktop) */
 .occasion-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 900px;
+  --occasion-gap: 14px;
+  --occasion-cols: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--occasion-gap);
+  max-width: 1040px;
   margin: 0 auto;
 }
 
-/* Nine cards: let the last one span the row on the 2-column mobile layout */
-.occasion-grid > :last-child {
-  grid-column: 1 / -1;
-}
-
-.occasion-grid > :last-child .cake-image {
-  aspect-ratio: 16 / 9 !important;
+.occasion-grid > * {
+  flex: 0 0 calc((100% - (var(--occasion-cols) - 1) * var(--occasion-gap)) / var(--occasion-cols));
+  min-width: 0;
 }
 
 .cake-grid {
@@ -105,14 +113,8 @@
 
 @media (min-width: 640px) {
   .occasion-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  .occasion-grid > :last-child {
-    grid-column: auto;
-  }
-  .occasion-grid > :last-child .cake-image {
-    aspect-ratio: 4 / 5 !important;
+    --occasion-cols: 3;
+    --occasion-gap: 14px;
   }
   .steps {
     grid-template-columns: repeat(3, 1fr);
@@ -142,6 +144,9 @@
 }
 
 @media (min-width: 1024px) {
+  .occasion-grid {
+    --occasion-cols: 5;
+  }
   .cake-grid {
     grid-template-columns: repeat(3, 1fr);
   }
