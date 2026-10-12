@@ -42,10 +42,10 @@ import vanillaOreoImg from "../assets/gallery/vanilla-oreo-drip.jpg";
  * items without an `image` fall back to the branded placeholder.
  */
 export const signatureCakes = [
-  { id: "mint-chocolate-1kg", name: "Mint & Chocolate", flavour: "Mint & Chocolate", size: "1 kg", price: 2500, categories: ["birthday"], featured: true, image: mintChocolateImg },
+  { id: "mint-chocolate-1kg", name: "Mint & Chocolate", flavour: "Mint & Chocolate", size: "1 kg", price: 2500, categories: ["birthday"], featured: true, image: mintChocolateImg, photoId: "minnie-cake" },
   { id: "red-velvet-chocolate", name: "Red Velvet & Chocolate", flavour: "Red Velvet & Chocolate", size: "1 kg", price: 2500, categories: ["birthday", "bridal"], featured: true },
-  { id: "pina-colada-chocolate", name: "Piña Colada & Chocolate", flavour: "Piña Colada & Chocolate", size: "2 kg", price: 4300, categories: ["birthday", "bridal"], featured: true, image: pinaColada2kgImg },
-  { id: "mint-chocolate-2kg", name: "Mint & Chocolate", flavour: "Mint & Chocolate", size: "2 kg", price: 4700, categories: ["birthday", "corporate"], featured: true, image: mintChocolateImg },
+  { id: "pina-colada-chocolate", name: "Piña Colada & Chocolate", flavour: "Piña Colada & Chocolate", size: "2 kg", price: 4300, categories: ["birthday", "bridal"], featured: true, image: pinaColada2kgImg, photoId: "teddy-cake" },
+  { id: "mint-chocolate-2kg", name: "Mint & Chocolate", flavour: "Mint & Chocolate", size: "2 kg", price: 4700, categories: ["birthday", "corporate"], featured: true, image: mintChocolateImg, photoId: "minnie-cake" },
   { id: "bubblegum", name: "Bubblegum Cake", flavour: "Bubblegum", size: "1 kg", price: 2500, categories: ["birthday", "baby-shower"], featured: false },
   { id: "chocolate-caramel", name: "Chocolate Cake with Caramel Filling", flavour: "Chocolate & Caramel", size: "1 kg", price: 2500, categories: ["birthday"], featured: true, image: chocolateCake1kgImg },
   { id: "pina-colada-vanilla", name: "Piña Colada & Vanilla", flavour: "Piña Colada & Vanilla", size: "2 kg", price: 4000, categories: ["birthday", "baby-shower"], featured: false },
@@ -59,11 +59,52 @@ export const signatureCakes = [
 ];
 
 /**
- * Cakes shown on the homepage: signature cakes that have a real photo. Cakes
- * without one stay in the data and the catalogue, and join the homepage as
- * soon as an `image` is added.
+ * Identity of a photo, so the same picture is never shown twice. Drops the query
+ * string and, in production builds, the file name: Vite names every asset
+ * `<name>-<content hash>.<ext>`, so identical files saved under different names
+ * share the trailing hash. (In dev the full path is used.)
  */
-export const homepageCakes = signatureCakes.filter((cake) => Boolean(cake.image));
+export function imageKey(src) {
+  if (!src) return null;
+  const path = String(src).split(/[?#]/)[0];
+  return path.match(/-([\w-]{8})\.(?:jpe?g|png|webp)$/i)?.[1] ?? path;
+}
+
+/** Filter slugs in the order the homepage tries to represent them. */
+export const HOMEPAGE_CATEGORY_PRIORITY = ["graduation", "kids", "birthday", "baby-shower", "wedding", "anniversary"];
+
+/**
+ * Picks a varied set of cakes for a homepage section. Only cakes with a photo
+ * qualify, and each distinct photo is used once (`photoId` marks the same cake
+ * photographed in different files). Cakes are taken round-robin through
+ * `categoryPriority` — one per category per round — so no single occasion fills
+ * the grid, and categories with no photographed cake are simply skipped. Fewer
+ * than `limit` cakes are returned when that is all there is. Nothing is removed
+ * from the catalogue.
+ */
+export function pickVariedCakes(cakes, categoryPriority = HOMEPAGE_CATEGORY_PRIORITY, limit = 9) {
+  const candidates = [...cakes.filter((cake) => cake.featured), ...cakes.filter((cake) => !cake.featured)].filter(
+    (cake) => cake.image
+  );
+  const photoKey = (cake) => cake.photoId ?? imageKey(cake.image);
+  const picked = [];
+  const usedPhotos = new Set();
+
+  let addedThisRound = true;
+  while (addedThisRound && picked.length < limit) {
+    addedThisRound = false;
+    for (const category of categoryPriority) {
+      if (picked.length >= limit) break;
+      const next = candidates.find((cake) => !usedPhotos.has(photoKey(cake)) && cakeMatches(cake, category));
+      if (next) {
+        picked.push(next);
+        usedPhotos.add(photoKey(next));
+        addedThisRound = true;
+      }
+    }
+  }
+  return picked;
+}
 
 /**
  * Photographed designs from the business's portfolio. They have no fixed price
@@ -74,6 +115,9 @@ export const homepageCakes = signatureCakes.filter((cake) => Boolean(cake.image)
  * (data/categories.js); the catalogue and gallery filters pick them up
  * automatically. Set `review` to a note when the occasion is a judgement call.
  */
+// Photos that also back a priced cake above, stored there as a different file of the same cake
+const SAME_PHOTO_AS_PRICED_CAKE = { "minnie-mouse": "minnie-cake", "teddy-bear": "teddy-cake" };
+
 const photoCake = (id, name, categories, image, review) => ({
   id,
   name,
@@ -82,6 +126,7 @@ const photoCake = (id, name, categories, image, review) => ({
   categories,
   featured: false,
   image,
+  ...(SAME_PHOTO_AS_PRICED_CAKE[id] ? { photoId: SAME_PHOTO_AS_PRICED_CAKE[id] } : {}),
   ...(review ? { review } : {}),
 });
 
@@ -113,6 +158,9 @@ export const photoCakes = [
   photoCake("blue-drip-13th-birthday", "Blue Drip 13th Birthday Cake", ["birthday"], blueDripImg),
   photoCake("vanilla-oreo-drip", "Vanilla Oreo Drip Cake", ["birthday"], vanillaOreoImg),
 ];
+
+/** "Made for Every Celebration" on the homepage: up to 9 cakes, a mix of occasions, all with distinct photos. */
+export const homepageCakes = pickVariedCakes([...signatureCakes, ...photoCakes]);
 
 /** Curated flavour picks per occasion, used to flesh out the catalogue at standard sizes. */
 const occasionFlavourPicks = {

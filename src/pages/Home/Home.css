@@ -33,6 +33,12 @@
   gap: 24px;
 }
 
+/* Homepage favourites: columns adapt to however many cakes there are, centred, at a fixed card width */
+.cake-grid.cake-grid--home {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 340px));
+  justify-content: center;
+}
+
 .cake-card .cake-image {
   aspect-ratio: 4 / 5 !important;
 }

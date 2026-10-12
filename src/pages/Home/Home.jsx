@@ -61,17 +61,17 @@ export default function Home() {
         <div className="container">
           <div className="section-heading">
             <span className="eyebrow">Signature Cakes</span>
-            <h2>Customer favourites</h2>
-            <p>Loved again and again — ready to order or use as inspiration for your own.</p>
+            <h2>Made for Every Celebration</h2>
+            <p>From graduations to first birthdays — real cakes to order or to inspire your own.</p>
           </div>
-          <div className="cake-grid">
+          <div className="cake-grid cake-grid--home">
             {homepageCakes.map((cake) => (
               <CakeCard key={cake.id} cake={cake} />
             ))}
           </div>
           <div className="home-cta">
             <Link to="/our-cakes" className="btn btn-secondary">
-              View Full Catalogue
+              View All Cakes
             </Link>
           </div>
         </div>
