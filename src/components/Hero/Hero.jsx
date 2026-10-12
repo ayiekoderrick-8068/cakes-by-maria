@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Hero.css";
 import CakeImage from "../CakeImage/CakeImage";
-import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
 import heroImg from "../../assets/gallery/oreo-drip.jpg";
 
 export default function Hero() {
@@ -18,10 +17,12 @@ export default function Hero() {
             occasion.
           </p>
           <div className="hero__actions">
-            <Link to="/our-cakes" className="btn btn-secondary">
+            <Link to="/our-cakes" className="btn btn-primary">
               Explore Cakes
             </Link>
-            <WhatsAppButton />
+            <Link to="/custom-order" className="btn btn-secondary">
+              Create Your Cake
+            </Link>
           </div>
         </div>
         <div className="hero__media">

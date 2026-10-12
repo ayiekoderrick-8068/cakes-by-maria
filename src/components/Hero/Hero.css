@@ -30,6 +30,18 @@
   margin-top: 28px;
 }
 
+.hero__actions .btn {
+  flex: 1 1 160px;
+  max-width: 220px;
+  padding: 14px 24px;
+}
+
+@media (max-width: 420px) {
+  .hero__actions .btn {
+    max-width: none;
+  }
+}
+
 .hero__media {
   max-width: 440px;
   margin: 0 auto;
