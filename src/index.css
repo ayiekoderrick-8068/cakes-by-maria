@@ -244,6 +244,14 @@ button:focus-visible {
   font-size: 1.04rem;
 }
 
+/* Shared by the catalogue and gallery grids when the category filter changes */
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

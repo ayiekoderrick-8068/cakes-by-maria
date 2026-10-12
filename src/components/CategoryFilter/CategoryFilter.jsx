@@ -1,7 +1,19 @@
 import "./CategoryFilter.css";
 
-export default function CategoryFilter({ categories, active, onChange, includeAll = true }) {
-  const options = includeAll ? [{ slug: "all", label: "All" }, ...categories] : categories;
+/**
+ * Chip row for filtering. Each category may carry a `count`, shown as a small
+ * badge; `allCount` adds one to the "All" chip. On narrow screens the row
+ * scrolls sideways instead of wrapping.
+ */
+export default function CategoryFilter({
+  categories,
+  active,
+  onChange,
+  includeAll = true,
+  allLabel = "All",
+  allCount,
+}) {
+  const options = includeAll ? [{ slug: "all", label: allLabel, count: allCount }, ...categories] : categories;
 
   return (
     <div className="category-filter" role="tablist" aria-label="Filter by category">
@@ -14,6 +26,7 @@ export default function CategoryFilter({ categories, active, onChange, includeAl
           onClick={() => onChange(category.slug)}
         >
           {category.label}
+          {typeof category.count === "number" && <span className="category-filter__count">{category.count}</span>}
         </button>
       ))}
     </div>

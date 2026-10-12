@@ -4,6 +4,7 @@
 }
 
 .gallery-grid__item {
+  animation: grid-fade-in 360ms ease both;
   margin: 0 0 16px;
   break-inside: avoid;
   border-radius: var(--radius-md);

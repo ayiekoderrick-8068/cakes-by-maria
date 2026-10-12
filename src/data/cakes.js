@@ -1,4 +1,5 @@
 import { flavourRate } from "./flavours";
+import { cakeFilters } from "./categories";
 
 import bentoChocolateImg from "../assets/cakes/bento-chocolate-hd.jpg";
 import pinaColada2kgImg from "../assets/cakes/pinacolada-chocolate-2kg-hd.jpg";
@@ -7,6 +8,31 @@ import chocolateCake1kgImg from "../assets/cakes/chocolate-cake-1kg-hd.jpg";
 import cakePopsImg from "../assets/gallery/cake-pops.jpg";
 import cakesiclesImg from "../assets/gallery/cakesicles.jpg";
 import coconutImg from "../assets/gallery/coconut-berry-drip.jpg";
+import peonyLineArtImg from "../assets/gallery/peony-line-art.jpg";
+import wineBlackImg from "../assets/gallery/wine-black.jpg";
+import brushstrokeFloralImg from "../assets/gallery/brushstroke-floral.jpg";
+import blackGoldImg from "../assets/gallery/black-gold-silhouette.jpg";
+import greenCrownImg from "../assets/gallery/green-crown.jpg";
+import butterflyPinkImg from "../assets/gallery/butterfly-pink.jpg";
+import yellowFlowersImg from "../assets/gallery/yellow-flowers.jpg";
+import rosetteOmbreImg from "../assets/gallery/rosette-ombre-first-birthday.jpg";
+import safariImg from "../assets/gallery/safari.jpg";
+import pawPatrolImg from "../assets/gallery/paw-patrol.jpg";
+import minnieMouseImg from "../assets/gallery/minnie-mouse.jpg";
+import graduationImg from "../assets/gallery/graduation.jpg";
+import teddyBearImg from "../assets/gallery/teddy-bear.jpg";
+import pink10thImg from "../assets/gallery/pink-10th-birthday.jpg";
+import freshFruitImg from "../assets/gallery/fresh-fruit.jpg";
+import farewellImg from "../assets/gallery/farewell-strawberry.jpg";
+import tiktokImg from "../assets/gallery/tiktok-11th-birthday.jpg";
+import gradeOneImg from "../assets/gallery/ready-for-grade-one.jpg";
+import guylianImg from "../assets/gallery/roses-chocolate-ribbon.jpg";
+import lineArtFaceImg from "../assets/gallery/line-art-face-roses.jpg";
+import honeybeeImg from "../assets/gallery/honeybee.jpg";
+import redDripImg from "../assets/gallery/red-drip-strawberry.jpg";
+import goldWhiteImg from "../assets/gallery/gold-white-buttercream.jpg";
+import purple11Img from "../assets/gallery/purple-11th-birthday.jpg";
+import blueDripImg from "../assets/gallery/blue-drip-13th-birthday.jpg";
 
 /**
  * The signature cakes from the business's real WhatsApp price list — fixed
@@ -30,6 +56,55 @@ export const signatureCakes = [
   { id: "chocolate-popsicle", name: "Chocolate Popsicle", flavour: "Chocolate", size: "Each", price: 200, categories: ["treats"], featured: false, image: cakesiclesImg },
   { id: "cake-pops", name: "Cake Pops", flavour: "Assorted", size: "Each", price: 100, categories: ["treats"], featured: false, image: cakePopsImg },
 ];
+
+/**
+ * Photographed designs from the business's portfolio. They have no fixed price
+ * (each is quoted on request) and are what the Gallery page shows too.
+ *
+ * To add a cake: drop the photo in src/assets/gallery, import it above, and add
+ * a record here. `categories` are tags — any of the slugs in `categoryLabels`
+ * (data/categories.js); the catalogue and gallery filters pick them up
+ * automatically. Set `review` to a note when the occasion is a judgement call.
+ */
+const photoCake = (id, name, categories, image, review) => ({
+  id,
+  name,
+  flavour: name,
+  size: "Custom size",
+  categories,
+  featured: false,
+  image,
+  ...(review ? { review } : {}),
+});
+
+export const photoCakes = [
+  photoCake("peony-line-art", "Peony & Line-Art Cake", ["custom"], peonyLineArtImg, "No occasion shown"),
+  photoCake("black-wine-roses", "Black Wine & Roses Cake", ["custom"], wineBlackImg, "Adult theme; birthday or anniversary?"),
+  photoCake("brushstroke-floral", "Brushstroke Floral Cake", ["birthday"], brushstrokeFloralImg),
+  photoCake("black-gold-birthday", "Black & Gold Birthday Cake", ["birthday"], blackGoldImg),
+  photoCake("emerald-crown", "Emerald Crown Birthday Cake", ["birthday"], greenCrownImg),
+  photoCake("pink-butterfly-birthday", "Pink Butterfly Birthday Cake", ["birthday"], butterflyPinkImg),
+  photoCake("yellow-chrysanthemum", "Yellow Chrysanthemum Cake", ["custom"], yellowFlowersImg, "No occasion shown"),
+  photoCake("ombre-rosette-first-birthday", "Ombre Rosette First Birthday Cake", ["birthday", "kids"], rosetteOmbreImg),
+  photoCake("safari-baby", "Safari Baby Cake", ["kids", "birthday"], safariImg),
+  photoCake("paw-patrol", "Paw Patrol Cake", ["kids", "birthday"], pawPatrolImg),
+  photoCake("minnie-mouse", "Minnie Mouse Cake", ["kids", "birthday"], minnieMouseImg),
+  photoCake("graduation", "Graduation Cake", ["graduation"], graduationImg),
+  photoCake("teddy-bear", "Teddy Bear Cake", ["kids", "baby-shower"], teddyBearImg, "Baby shower or kids' birthday?"),
+  photoCake("pink-10th-birthday", "Pink Butterfly 10th Birthday Cake", ["birthday"], pink10thImg),
+  photoCake("fresh-fruit", "Fresh Fruit Cake", ["custom"], freshFruitImg, "No occasion shown"),
+  photoCake("farewell-strawberry", "Farewell Strawberry Cake", ["custom"], farewellImg),
+  photoCake("tiktok-11th-birthday", "TikTok 11th Birthday Cake", ["birthday", "kids"], tiktokImg),
+  photoCake("ready-for-grade-one", "Ready for Grade One Cake", ["graduation", "kids"], gradeOneImg),
+  photoCake("roses-chocolate-ribbon", "Roses & Chocolate Ribbon Cake", ["custom"], guylianImg, "Gift cake; anniversary or birthday?"),
+  photoCake("line-art-face-roses", "Line-Art Face & Roses Cake", ["custom"], lineArtFaceImg, "Name cake; occasion not shown"),
+  photoCake("honeybee-birthday", "Honeybee Birthday Cake", ["birthday", "kids"], honeybeeImg),
+  photoCake("red-drip-strawberry", "Red Drip Strawberry Cake", ["birthday"], redDripImg),
+  photoCake("gold-white-buttercream", "Gold Accent Buttercream Cake", ["custom"], goldWhiteImg, "No occasion shown"),
+  photoCake("purple-11th-birthday", "Purple Butterfly 11th Birthday Cake", ["birthday"], purple11Img),
+  photoCake("blue-drip-13th-birthday", "Blue Drip 13th Birthday Cake", ["birthday"], blueDripImg),
+];
+
 /** Curated flavour picks per occasion, used to flesh out the catalogue at standard sizes. */
 const occasionFlavourPicks = {
   birthday: ["Vanilla", "Chocolate", "Red Velvet", "Marble", "Bubblegum"],
@@ -124,18 +199,36 @@ const cupcakeCatalogueCakes = [
   },
 ];
 
+// Photographed items lead the catalogue so the browsing experience is image-first.
 export const allCakes = [
-  ...signatureCakes,
+  ...signatureCakes.filter((cake) => cake.image),
+  ...photoCakes,
+  ...signatureCakes.filter((cake) => !cake.image),
   ...buildOccasionCakes(),
   ...bentoCatalogueCakes,
   ...cupcakeCatalogueCakes,
 ];
 
+export const PRICE_ON_REQUEST = "Price on request";
+
 export function formatPrice(amount) {
-  return `KSh ${amount.toLocaleString("en-KE")}`;
+  return typeof amount === "number" ? `KSh ${amount.toLocaleString("en-KE")}` : PRICE_ON_REQUEST;
+}
+
+/** True when `cake` belongs to the filter `slug` (a filter chip, or a single legacy tag). */
+export function cakeMatches(cake, slug) {
+  if (!slug || slug === "all") return true;
+  const tags = cakeFilters.find((filter) => filter.slug === slug)?.tags ?? [slug];
+  return tags.some((tag) => cake.categories.includes(tag));
+}
+
+/** The filter chips that have at least one cake in `cakes`, each with its cake count. */
+export function filtersWithCounts(cakes) {
+  return cakeFilters
+    .map((filter) => ({ ...filter, count: cakes.filter((cake) => cakeMatches(cake, filter.slug)).length }))
+    .filter((filter) => filter.count > 0);
 }
 
 export function getCakesByCategory(categorySlug) {
-  if (!categorySlug || categorySlug === "all") return allCakes;
-  return allCakes.filter((cake) => cake.categories.includes(categorySlug));
+  return allCakes.filter((cake) => cakeMatches(cake, categorySlug));
 }

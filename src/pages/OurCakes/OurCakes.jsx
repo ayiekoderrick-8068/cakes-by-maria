@@ -5,12 +5,12 @@ import CategoryFilter from "../../components/CategoryFilter/CategoryFilter";
 import CakeCard from "../../components/CakeCard/CakeCard";
 import CakeImage from "../../components/CakeImage/CakeImage";
 import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton";
-import { categories, getCategoryLabel } from "../../data/categories";
-import { allCakes, formatPrice } from "../../data/cakes";
+import { getCategoryLabel } from "../../data/categories";
+import { allCakes, cakeMatches, filtersWithCounts, formatPrice } from "../../data/cakes";
 import { cakeOrderMessage } from "../../utils/whatsapp";
 import "./OurCakes.css";
 
-const CATALOGUE_CATEGORIES = categories.filter((c) => c.slug !== "custom");
+const FILTERS = filtersWithCounts(allCakes);
 
 export default function OurCakes() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,8 +28,22 @@ export default function OurCakes() {
     setSearchParams(slug === "all" ? {} : { category: slug });
   };
 
+  // Links from the homepage can use an occasion that has no chip of its own
+  // (e.g. Bento, Bridal Shower); show it as one extra chip while it is selected.
+  const filterOptions =
+    activeCategory === "all" || FILTERS.some((f) => f.slug === activeCategory)
+      ? FILTERS
+      : [
+          ...FILTERS,
+          {
+            slug: activeCategory,
+            label: getCategoryLabel(activeCategory),
+            count: allCakes.filter((c) => cakeMatches(c, activeCategory)).length,
+          },
+        ];
+
   const filteredCakes = useMemo(() => {
-    let results = activeCategory === "all" ? allCakes : allCakes.filter((c) => c.categories.includes(activeCategory));
+    let results = allCakes.filter((c) => cakeMatches(c, activeCategory));
     if (search.trim()) {
       const query = search.trim().toLowerCase();
       results = results.filter(
@@ -79,7 +93,13 @@ export default function OurCakes() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </label>
-            <CategoryFilter categories={CATALOGUE_CATEGORIES} active={activeCategory} onChange={handleCategoryChange} />
+            <CategoryFilter
+              categories={filterOptions}
+              active={activeCategory}
+              onChange={handleCategoryChange}
+              allLabel="All Cakes"
+              allCount={allCakes.length}
+            />
           </div>
 
           {filteredCakes.length === 0 ? (
@@ -87,7 +107,7 @@ export default function OurCakes() {
               No cakes match that search just yet — try another term, or send us a custom request.
             </p>
           ) : (
-            <div className="cake-grid our-cakes__grid">
+            <div className="cake-grid our-cakes__grid" key={activeCategory}>
               {filteredCakes.map((cake) => (
                 <CakeCard key={cake.id} cake={cake} />
               ))}

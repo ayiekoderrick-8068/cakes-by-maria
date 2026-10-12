@@ -21,17 +21,41 @@ export const categories = [
   { slug: "custom", label: "Custom Cakes", image: customImg, focus: "50% 70%" },
 ];
 
-export const galleryCategories = [
-  { slug: "birthdays", label: "Birthdays" },
-  { slug: "kids", label: "Kids" },
-  { slug: "graduation", label: "Graduation" },
-  { slug: "bridal", label: "Bridal" },
-  { slug: "baby-shower", label: "Baby Shower" },
-  { slug: "corporate", label: "Corporate" },
-  { slug: "bento", label: "Bento" },
-  { slug: "treats", label: "Cake Pops & Treats" },
+/**
+ * Every tag a cake can carry (cake.categories), with its short display label.
+ * Add a new tag here before using it on a cake.
+ */
+export const categoryLabels = {
+  birthday: "Birthday",
+  wedding: "Wedding",
+  "baby-shower": "Baby Shower",
+  graduation: "Graduation",
+  anniversary: "Anniversary",
+  kids: "Kids",
+  custom: "Custom",
+  cupcakes: "Cupcakes",
+  treats: "Cake Pops & Treats",
+  bridal: "Bridal Shower",
+  corporate: "Corporate",
+  bento: "Bento",
+};
+
+/**
+ * Filter chips shown above the catalogue and gallery, in display order. A chip
+ * shows every cake carrying any of its `tags`. Chips with no cakes yet (for
+ * example Wedding and Anniversary) stay hidden until a cake is tagged for them.
+ */
+export const cakeFilters = [
+  { slug: "birthday", label: "Birthday", tags: ["birthday"] },
+  { slug: "wedding", label: "Wedding", tags: ["wedding"] },
+  { slug: "baby-shower", label: "Baby Shower", tags: ["baby-shower"] },
+  { slug: "graduation", label: "Graduation", tags: ["graduation"] },
+  { slug: "anniversary", label: "Anniversary", tags: ["anniversary"] },
+  { slug: "kids", label: "Kids", tags: ["kids"] },
+  { slug: "custom", label: "Custom", tags: ["custom"] },
+  { slug: "cupcakes", label: "Cupcakes & Treats", tags: ["cupcakes", "treats"] },
 ];
 
 export function getCategoryLabel(slug) {
-  return categories.find((c) => c.slug === slug)?.label ?? slug;
+  return categories.find((c) => c.slug === slug)?.label ?? categoryLabels[slug] ?? slug;
 }

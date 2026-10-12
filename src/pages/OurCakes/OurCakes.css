@@ -29,6 +29,10 @@
   grid-template-columns: 1fr;
 }
 
+.our-cakes__grid > * {
+  animation: grid-fade-in 360ms ease both;
+}
+
 .our-cakes__empty {
   text-align: center;
   padding: 40px 0;

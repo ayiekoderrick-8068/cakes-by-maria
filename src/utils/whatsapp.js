@@ -10,6 +10,9 @@ export function buildWhatsAppUrl(message) {
 
 /** Message for enquiring about a specific catalogue cake. */
 export function cakeOrderMessage(cake) {
+  if (typeof cake.price !== "number") {
+    return `Hi Cakes by Maria, I'm interested in the ${cake.name} (as shown on your website). Could you share the price and availability?`;
+  }
   return `Hi Cakes by Maria, I'm interested in the ${cake.name} cake, ${cake.size}, ${cake.priceLabel ?? `KSh ${cake.price.toLocaleString("en-KE")}`}. Is it available?`;
 }
 

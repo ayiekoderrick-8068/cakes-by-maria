@@ -30,6 +30,21 @@
   flex: 1;
 }
 
+.cake-card__category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mauve-text);
+}
+
+.cake-card__price--quote {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
 .cake-card__name {
   margin: 0;
   font-size: 1.15rem;
