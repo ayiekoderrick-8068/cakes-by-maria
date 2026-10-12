@@ -1,0 +1,13 @@
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-mauve-text);
+}
+
+.location-badge svg {
+  flex-shrink: 0;
+}

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import { LocationIcon } from "../LocationBadge/LocationBadge";
+import { BUSINESS_LOCATION } from "../../data/business";
 import { WHATSAPP_DISPLAY, INSTAGRAM_HANDLE, INSTAGRAM_URL, buildWhatsAppUrl } from "../../utils/whatsapp";
 
 export default function Footer() {
@@ -27,6 +29,10 @@ export default function Footer() {
         <div className="site-footer__contact">
           <h4>Get in touch</h4>
           <ul>
+            <li className="site-footer__location">
+              <LocationIcon />
+              <span>{BUSINESS_LOCATION}</span>
+            </li>
             <li>
               <a href={buildWhatsAppUrl("Hello Cakes by Maria, I'd like to place an order.")} target="_blank" rel="noopener noreferrer">
                 WhatsApp: {WHATSAPP_DISPLAY}

@@ -4,10 +4,8 @@ import SEO from "../../components/SEO/SEO";
 import CategoryFilter from "../../components/CategoryFilter/CategoryFilter";
 import CakeCard from "../../components/CakeCard/CakeCard";
 import CakeImage from "../../components/CakeImage/CakeImage";
-import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton";
 import { getCategoryLabel } from "../../data/categories";
 import { allCakes, cakeMatches, filtersWithCounts, formatPrice } from "../../data/cakes";
-import { cakeOrderMessage } from "../../utils/whatsapp";
 import "./OurCakes.css";
 
 const FILTERS = filtersWithCounts(allCakes);
@@ -131,7 +129,9 @@ export default function OurCakes() {
                 {selectedCake.size}
               </p>
               <p className="cake-detail__price">{formatPrice(selectedCake.price)}</p>
-              <WhatsAppButton className="btn-block" label="Order on WhatsApp" message={cakeOrderMessage(selectedCake)} />
+              <Link to={`/checkout?cake=${selectedCake.id}`} className="btn btn-primary btn-block">
+                Order This Cake
+              </Link>
             </div>
           </div>
         </div>

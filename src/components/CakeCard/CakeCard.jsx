@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import "./CakeCard.css";
 import CakeImage from "../CakeImage/CakeImage";
-import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
 import { formatPrice } from "../../data/cakes";
 import { categoryLabels } from "../../data/categories";
-import { cakeOrderMessage } from "../../utils/whatsapp";
 
 export default function CakeCard({ cake }) {
   return (
@@ -24,7 +22,9 @@ export default function CakeCard({ cake }) {
           <Link to={`/our-cakes?cake=${cake.id}`} className="btn btn-secondary btn-sm">
             View Details
           </Link>
-          <WhatsAppButton variant="sm" label="Order" message={cakeOrderMessage(cake)} />
+          <Link to={`/checkout?cake=${cake.id}`} className="btn btn-primary btn-sm">
+            Order
+          </Link>
         </div>
       </div>
     </article>

@@ -13,6 +13,7 @@ export default function WhatsAppButton({
   variant = "primary",
   className = "",
   floating = false,
+  onClick,
 }) {
   const href = buildWhatsAppUrl(message);
 
@@ -35,6 +36,7 @@ export default function WhatsAppButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={onClick}
       className={`btn btn-whatsapp ${variant === "sm" ? "btn-sm" : ""} ${className}`}
     >
       <WhatsAppIcon small />

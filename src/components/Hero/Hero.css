@@ -30,6 +30,10 @@
   margin-top: 28px;
 }
 
+.hero__location {
+  margin-top: 22px;
+}
+
 .hero__actions .btn {
   flex: 1 1 160px;
   max-width: 220px;
@@ -81,4 +85,75 @@
 
 .hero__media .cake-image img {
   object-position: 50% 55%;
+}
+
+/*
+ * Photo carousel: slides are stacked inside the existing arched frame. The new
+ * photo fades in (800ms) on top of the old one, which stays fully opaque
+ * underneath until the fade finishes and is then hidden. Both are never
+ * half-transparent at once, so no background or white flash shows through.
+ * Opacity is the only property animated — nothing slides, scales or moves.
+ */
+.hero__carousel {
+  position: relative;
+}
+
+.hero__media .hero__slides img.hero__slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0s linear 800ms;
+}
+
+.hero__media .hero__slides img.hero__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 800ms ease;
+}
+
+/* Dots sit just below the frame without adding to the hero's height */
+.hero__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.hero__dot {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero__dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--color-mauve);
+  opacity: 0.45;
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-base), opacity var(--transition-base), background var(--transition-base);
+}
+
+.hero__dot:hover::after {
+  opacity: 0.8;
+}
+
+.hero__dot.is-active::after {
+  width: 20px;
+  background: var(--color-cocoa);
+  opacity: 1;
 }

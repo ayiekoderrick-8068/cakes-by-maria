@@ -2,6 +2,8 @@ import { useState } from "react";
 import SEO from "../../components/SEO/SEO";
 import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton";
 import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, INSTAGRAM_HANDLE, INSTAGRAM_URL, enquiryMessage } from "../../utils/whatsapp";
+import { LocationIcon } from "../../components/LocationBadge/LocationBadge";
+import { BUSINESS_LOCATION } from "../../data/business";
 import "./Contact.css";
 
 const INITIAL_FORM = { name: "", message: "" };
@@ -33,6 +35,16 @@ export default function Contact() {
           <div className="contact__details">
             <h3>Reach us directly</h3>
             <ul className="contact__list">
+              <li>
+                <span className="contact__label">Based in</span>
+                <span className="contact__place">
+                  <LocationIcon size={18} />
+                  {BUSINESS_LOCATION}
+                </span>
+                <span className="contact__note">
+                  Every cake is made to order. We agree delivery or pickup details with you on WhatsApp.
+                </span>
+              </li>
               <li>
                 <span className="contact__label">WhatsApp</span>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
