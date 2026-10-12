@@ -33,6 +33,7 @@ import redDripImg from "../assets/gallery/red-drip-strawberry.jpg";
 import goldWhiteImg from "../assets/gallery/gold-white-buttercream.jpg";
 import purple11Img from "../assets/gallery/purple-11th-birthday.jpg";
 import blueDripImg from "../assets/gallery/blue-drip-13th-birthday.jpg";
+import vanillaOreoImg from "../assets/gallery/vanilla-oreo-drip.jpg";
 
 /**
  * The signature cakes from the business's real WhatsApp price list — fixed
@@ -103,6 +104,7 @@ export const photoCakes = [
   photoCake("gold-white-buttercream", "Gold Accent Buttercream Cake", ["custom"], goldWhiteImg, "No occasion shown"),
   photoCake("purple-11th-birthday", "Purple Butterfly 11th Birthday Cake", ["birthday"], purple11Img),
   photoCake("blue-drip-13th-birthday", "Blue Drip 13th Birthday Cake", ["birthday"], blueDripImg),
+  photoCake("vanilla-oreo-drip", "Vanilla Oreo Drip Cake", ["birthday"], vanillaOreoImg),
 ];
 
 /** Curated flavour picks per occasion, used to flesh out the catalogue at standard sizes. */
