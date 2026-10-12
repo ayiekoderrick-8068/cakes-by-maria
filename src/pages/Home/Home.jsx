@@ -5,7 +5,7 @@ import OccasionCard from "../../components/OccasionCard/OccasionCard";
 import CakeCard from "../../components/CakeCard/CakeCard";
 import CakeImage from "../../components/CakeImage/CakeImage";
 import { categories } from "../../data/categories";
-import { signatureCakes } from "../../data/cakes";
+import { homepageCakes } from "../../data/cakes";
 import customImg from "../../assets/gallery/green-crown.jpg";
 import "./Home.css";
 
@@ -65,7 +65,7 @@ export default function Home() {
             <p>Loved again and again — ready to order or use as inspiration for your own.</p>
           </div>
           <div className="cake-grid">
-            {signatureCakes.map((cake) => (
+            {homepageCakes.map((cake) => (
               <CakeCard key={cake.id} cake={cake} />
             ))}
           </div>

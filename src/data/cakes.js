@@ -59,6 +59,13 @@ export const signatureCakes = [
 ];
 
 /**
+ * Cakes shown on the homepage: signature cakes that have a real photo. Cakes
+ * without one stay in the data and the catalogue, and join the homepage as
+ * soon as an `image` is added.
+ */
+export const homepageCakes = signatureCakes.filter((cake) => Boolean(cake.image));
+
+/**
  * Photographed designs from the business's portfolio. They have no fixed price
  * (each is quoted on request) and are what the Gallery page shows too.
  *
