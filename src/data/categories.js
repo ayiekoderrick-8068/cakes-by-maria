@@ -34,6 +34,7 @@ export const categoryLabels = {
   kids: "Kids",
   custom: "Custom",
   cupcakes: "Cupcakes",
+  doughnuts: "Doughnuts",
   treats: "Cake Pops & Treats",
   bridal: "Bridal Shower",
   corporate: "Corporate",
@@ -53,7 +54,7 @@ export const cakeFilters = [
   { slug: "anniversary", label: "Anniversary", tags: ["anniversary"] },
   { slug: "kids", label: "Kids", tags: ["kids"] },
   { slug: "custom", label: "Custom", tags: ["custom"] },
-  { slug: "cupcakes", label: "Cupcakes & Treats", tags: ["cupcakes", "treats"] },
+  { slug: "cupcakes", label: "Cupcakes & Treats", tags: ["cupcakes", "doughnuts", "treats"] },
 ];
 
 export function getCategoryLabel(slug) {

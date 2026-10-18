@@ -26,17 +26,17 @@ export const pricingSections = [
     id: "cupcakes",
     title: "Cupcakes",
     items: [
-      { label: "Plain cupcake", price: 50 },
-      { label: "Decorated cupcake", price: 80 },
-      { label: "6 decorated cupcakes with custom topper", price: 600 },
+      { label: "Plain cupcake" },
+      { label: "Decorated cupcake" },
+      { label: "6 decorated cupcakes with custom topper" },
     ],
   },
   {
     id: "doughnuts",
     title: "Doughnuts",
     items: [
-      { label: "Plain doughnut", price: 50 },
-      { label: "Assorted frosted doughnut", price: 80 },
+      { label: "Plain doughnut" },
+      { label: "Assorted frosted doughnut" },
     ],
   },
   {

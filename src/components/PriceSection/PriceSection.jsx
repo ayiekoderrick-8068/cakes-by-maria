@@ -22,8 +22,8 @@ export default function PriceSection({ section }) {
             <li key={item.label}>
               <span>{item.label}</span>
               <span className="price-section__price">
-                KSh {item.price.toLocaleString("en-KE")}
-                {item.suffix ? ` ${item.suffix}` : ""}
+                {typeof item.price === "number" ? `KSh ${item.price.toLocaleString("en-KE")}` : "To be discussed"}
+                {typeof item.price === "number" && item.suffix ? ` ${item.suffix}` : ""}
               </span>
             </li>
           ))}

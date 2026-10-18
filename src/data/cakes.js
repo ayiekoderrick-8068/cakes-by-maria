@@ -34,6 +34,29 @@ import goldWhiteImg from "../assets/gallery/gold-white-buttercream.jpg";
 import purple11Img from "../assets/gallery/purple-11th-birthday.jpg";
 import blueDripImg from "../assets/gallery/blue-drip-13th-birthday.jpg";
 import vanillaOreoImg from "../assets/gallery/vanilla-oreo-drip.jpg";
+import mintDripCupcakesImg from "../assets/gallery/chocolate-mint-drip-cupcakes.jpg";
+import blueberryGoldImg from "../assets/gallery/blueberry-gold-grey.jpg";
+import princessImg from "../assets/gallery/princess-fondant.jpg";
+import aquaLilacImg from "../assets/gallery/aqua-lilac-drip-liz.jpg";
+import rainbowImg from "../assets/gallery/rainbow-layer.jpg";
+import kitkatImg from "../assets/gallery/kitkat-candy.jpg";
+import essenceImg from "../assets/gallery/essence-butterfly-square.jpg";
+import chessImg from "../assets/gallery/chess-board.jpg";
+import waferDripImg from "../assets/gallery/chocolate-wafer-drip.jpg";
+import cem13Img from "../assets/gallery/cem-13th-roses-palm.jpg";
+import vintage50Img from "../assets/gallery/vintage-50th-filmstrip.jpg";
+import unicornImg from "../assets/gallery/unicorn-and-yellow-cakes.jpg";
+import spongebobImg from "../assets/gallery/spongebob.jpg";
+import emoji15Img from "../assets/gallery/emoji-15th.jpg";
+import pink50Img from "../assets/gallery/pink-50th-strawberry.jpg";
+import pianoImg from "../assets/gallery/grand-piano.jpg";
+import letterSImg from "../assets/gallery/letter-s-graduation.jpg";
+import citrusImg from "../assets/gallery/citrus-sponge.jpg";
+import medalImg from "../assets/gallery/medal-print.jpg";
+import raspberry31Img from "../assets/gallery/raspberry-chocolate-31st.jpg";
+import purpleGoldLeafImg from "../assets/gallery/purple-gold-leaf.jpg";
+import blackCopperImg from "../assets/gallery/black-copper-drip.jpg";
+import g10Img from "../assets/gallery/g10-brotherhood.jpg";
 
 /**
  * The signature cakes from the business's real WhatsApp price list — fixed
@@ -132,7 +155,7 @@ const photoCake = (id, name, categories, image, review) => ({
 
 export const photoCakes = [
   photoCake("peony-line-art", "Peony & Line-Art Cake", ["custom"], peonyLineArtImg, "No occasion shown"),
-  photoCake("black-wine-roses", "Black Wine & Roses Cake", ["custom"], wineBlackImg, "Adult theme; birthday or anniversary?"),
+  photoCake("black-wine-roses", "Black Wine & Roses Cake", ["birthday", "anniversary"], wineBlackImg),
   photoCake("brushstroke-floral", "Brushstroke Floral Cake", ["birthday"], brushstrokeFloralImg),
   photoCake("black-gold-birthday", "Black & Gold Birthday Cake", ["birthday"], blackGoldImg),
   photoCake("emerald-crown", "Emerald Crown Birthday Cake", ["birthday"], greenCrownImg),
@@ -143,13 +166,13 @@ export const photoCakes = [
   photoCake("paw-patrol", "Paw Patrol Cake", ["kids", "birthday"], pawPatrolImg),
   photoCake("minnie-mouse", "Minnie Mouse Cake", ["kids", "birthday"], minnieMouseImg),
   photoCake("graduation", "Graduation Cake", ["graduation"], graduationImg),
-  photoCake("teddy-bear", "Teddy Bear Cake", ["kids", "baby-shower"], teddyBearImg, "Baby shower or kids' birthday?"),
+  photoCake("teddy-bear", "Teddy Bear Cake", ["baby-shower", "kids", "birthday"], teddyBearImg),
   photoCake("pink-10th-birthday", "Pink Butterfly 10th Birthday Cake", ["birthday"], pink10thImg),
   photoCake("fresh-fruit", "Fresh Fruit Cake", ["custom"], freshFruitImg, "No occasion shown"),
   photoCake("farewell-strawberry", "Farewell Strawberry Cake", ["custom"], farewellImg),
   photoCake("tiktok-11th-birthday", "TikTok 11th Birthday Cake", ["birthday", "kids"], tiktokImg),
   photoCake("ready-for-grade-one", "Ready for Grade One Cake", ["graduation", "kids"], gradeOneImg),
-  photoCake("roses-chocolate-ribbon", "Roses & Chocolate Ribbon Cake", ["custom"], guylianImg, "Gift cake; anniversary or birthday?"),
+  photoCake("roses-chocolate-ribbon", "Roses & Chocolate Ribbon Cake", ["birthday", "anniversary"], guylianImg),
   photoCake("line-art-face-roses", "Line-Art Face & Roses Cake", ["custom"], lineArtFaceImg, "Name cake; occasion not shown"),
   photoCake("honeybee-birthday", "Honeybee Birthday Cake", ["birthday", "kids"], honeybeeImg),
   photoCake("red-drip-strawberry", "Red Drip Strawberry Cake", ["birthday"], redDripImg),
@@ -157,6 +180,29 @@ export const photoCakes = [
   photoCake("purple-11th-birthday", "Purple Butterfly 11th Birthday Cake", ["birthday"], purple11Img),
   photoCake("blue-drip-13th-birthday", "Blue Drip 13th Birthday Cake", ["birthday"], blueDripImg),
   photoCake("vanilla-oreo-drip", "Vanilla Oreo Drip Cake", ["birthday"], vanillaOreoImg),
+  photoCake("black-copper-drip", "Black & Copper Drip Birthday Cake", ["birthday"], blackCopperImg),
+  photoCake("blueberry-gold-grey", "Blueberry & Gold Birthday Cake", ["birthday"], blueberryGoldImg),
+  photoCake("aqua-lilac-drip", "Aqua & Lilac Drip Birthday Cake", ["birthday"], aquaLilacImg),
+  photoCake("kitkat-candy", "Kit Kat & Candy Birthday Cake", ["birthday"], kitkatImg),
+  photoCake("essence-butterfly-square", "Butterfly Square Birthday Cake", ["birthday"], essenceImg),
+  photoCake("cem-13th-roses", "Roses & Palm Fan 13th Birthday Cake", ["birthday"], cem13Img),
+  photoCake("emoji-15th", "Emoji 15th Birthday Cake", ["birthday"], emoji15Img),
+  photoCake("pink-50th-strawberry", "Pink Strawberry Drip 50th Birthday Cake", ["birthday"], pink50Img),
+  photoCake("raspberry-chocolate-31st", "Chocolate & Raspberry 31st Birthday Cake", ["birthday"], raspberry31Img),
+  photoCake("purple-gold-leaf", "Purple Ombre & Gold Leaf Birthday Cake", ["birthday"], purpleGoldLeafImg),
+  photoCake("chocolate-wafer-drip", "Chocolate Wafer & Ferrero Drip Cake", ["birthday"], waferDripImg),
+  photoCake("vintage-50th-filmstrip", "Vintage 50th Photo Film-Strip Cake", ["birthday", "custom"], vintage50Img),
+  photoCake("chess-board", "Chess Board Cake", ["birthday", "custom"], chessImg),
+  photoCake("grand-piano", "Grand Piano Cake", ["birthday", "custom"], pianoImg),
+  photoCake("rainbow-layer", "Rainbow Layer Cake", ["birthday"], rainbowImg),
+  photoCake("spongebob", "SpongeBob Cake", ["kids", "birthday"], spongebobImg),
+  photoCake("princess-fondant", "Princess Cake", ["kids", "birthday"], princessImg),
+  photoCake("unicorn-and-yellow-cakes", "Unicorn Birthday Cake", ["kids", "birthday"], unicornImg, "Photo also shows a yellow floral cake; swap in a unicorn-only photo when available"),
+  photoCake("letter-s-graduation", "Letter S Graduation Cake", ["graduation", "custom"], letterSImg),
+  photoCake("g10-brotherhood", "G10 Brotherhood Cake", ["custom"], g10Img, "Organisation logo cake; occasion not shown"),
+  photoCake("medal-print", "Edible Medal Print Cake", ["custom"], medalImg, "Award/tribute cake; occasion not shown"),
+  photoCake("chocolate-mint-drip-cupcakes", "Chocolate Mint Drip Cake with Cupcakes", ["birthday", "custom"], mintDripCupcakesImg),
+  photoCake("citrus-sponge", "Citrus Sponge Cake", ["birthday", "custom"], citrusImg),
 ];
 
 /** "Made for Every Celebration" on the homepage: up to 9 cakes, a mix of occasions, all with distinct photos. */
@@ -226,13 +272,14 @@ const bentoCatalogueCakes = [
   },
 ];
 
+// No `price` on purpose: cupcake and doughnut prices are still to be discussed, so they show "Price on request".
+// Add a `price` to each item once agreed, and an `image` when photos are available.
 const cupcakeCatalogueCakes = [
   {
     id: "cupcake-plain",
     name: "Plain Cupcake",
     flavour: "Vanilla",
     size: "Single",
-    price: 50,
     categories: ["cupcakes"],
     featured: false,
   },
@@ -241,7 +288,6 @@ const cupcakeCatalogueCakes = [
     name: "Decorated Cupcake",
     flavour: "Assorted",
     size: "Single",
-    price: 80,
     categories: ["cupcakes"],
     featured: false,
   },
@@ -250,8 +296,26 @@ const cupcakeCatalogueCakes = [
     name: "6 Decorated Cupcakes with Custom Topper",
     flavour: "Assorted",
     size: "Box of 6",
-    price: 600,
     categories: ["cupcakes"],
+    featured: false,
+  },
+];
+
+const doughnutCatalogueCakes = [
+  {
+    id: "doughnut-plain",
+    name: "Plain Doughnut",
+    flavour: "Classic",
+    size: "Single",
+    categories: ["doughnuts"],
+    featured: false,
+  },
+  {
+    id: "doughnut-frosted",
+    name: "Assorted Frosted Doughnut",
+    flavour: "Assorted",
+    size: "Single",
+    categories: ["doughnuts"],
     featured: false,
   },
 ];
@@ -264,6 +328,7 @@ export const allCakes = [
   ...buildOccasionCakes(),
   ...bentoCatalogueCakes,
   ...cupcakeCatalogueCakes,
+  ...doughnutCatalogueCakes,
 ];
 
 export const PRICE_ON_REQUEST = "Price on request";
