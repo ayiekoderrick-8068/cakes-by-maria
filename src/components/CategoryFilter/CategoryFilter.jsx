@@ -16,12 +16,12 @@ export default function CategoryFilter({
   const options = includeAll ? [{ slug: "all", label: allLabel, count: allCount }, ...categories] : categories;
 
   return (
-    <div className="category-filter" role="tablist" aria-label="Filter by category">
+    <div className="category-filter" role="group" aria-label="Filter by category">
       {options.map((category) => (
         <button
           key={category.slug}
-          role="tab"
-          aria-selected={active === category.slug}
+          type="button"
+          aria-pressed={active === category.slug}
           className={`category-filter__chip ${active === category.slug ? "is-active" : ""}`}
           onClick={() => onChange(category.slug)}
         >

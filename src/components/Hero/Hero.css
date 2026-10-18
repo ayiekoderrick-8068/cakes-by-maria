@@ -124,6 +124,24 @@
   gap: 2px;
 }
 
+/* Pause/play sits at the start of the dots row, in the same mauve as the dots */
+.hero__toggle {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--color-mauve-text);
+  cursor: pointer;
+}
+
+.hero__toggle:hover {
+  color: var(--color-cocoa);
+}
+
 .hero__dot {
   position: relative;
   width: 22px;

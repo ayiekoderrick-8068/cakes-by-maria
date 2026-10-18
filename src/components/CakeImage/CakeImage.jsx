@@ -53,6 +53,7 @@ export default function CakeImage({ src, alt, name, ratio = "4 / 3", className =
           src={src}
           alt={alt}
           loading="lazy"
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
         />

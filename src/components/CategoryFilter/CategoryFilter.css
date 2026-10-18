@@ -54,6 +54,19 @@
   color: var(--color-cream);
 }
 
+/* Fade the right edge on phones so it is clear the chip row scrolls sideways */
+@media (max-width: 959px) {
+  .category-filter {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    padding-right: 48px;
+  }
+}
+
+.category-filter__chip {
+  min-height: 44px;
+}
+
 @media (min-width: 960px) {
   .category-filter {
     flex-wrap: wrap;

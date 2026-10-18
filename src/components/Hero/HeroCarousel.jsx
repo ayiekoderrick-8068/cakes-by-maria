@@ -17,12 +17,13 @@ export default function HeroCarousel({ slides }) {
   const [failedIds, setFailedIds] = useState([]);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false); // set by the pause/play button
   const [reducedMotion, setReducedMotion] = useState(false);
   const touchStartX = useRef(null);
 
   const visible = slides.filter((slide) => !failedIds.includes(slide.id));
   const current = Math.min(active, Math.max(visible.length - 1, 0));
-  const canAutoplay = visible.length > 1 && !paused && !reducedMotion;
+  const canAutoplay = visible.length > 1 && !paused && !userPaused && !reducedMotion;
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -65,7 +66,10 @@ export default function HeroCarousel({ slides }) {
       aria-label="Cakes by Maria cake photos"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
+      onFocus={(event) => {
+        // The pause/play button has its own state; focusing it must not keep the slideshow paused
+        if (!event.target.closest(".hero__toggle")) setPaused(true);
+      }}
       onBlur={() => setPaused(false)}
       onTouchStart={(event) => {
         touchStartX.current = event.touches[0].clientX;
@@ -91,6 +95,18 @@ export default function HeroCarousel({ slides }) {
 
       {visible.length > 1 && (
         <div className="hero__dots" role="group" aria-label="Choose a photo">
+          {!reducedMotion && (
+            <button
+              type="button"
+              className="hero__toggle"
+              aria-label={userPaused ? "Play photo slideshow" : "Pause photo slideshow"}
+              onClick={() => setUserPaused((value) => !value)}
+            >
+              <svg viewBox="0 0 10 10" width="10" height="10" fill="currentColor" aria-hidden="true">
+                {userPaused ? <path d="M2 1l7 4-7 4z" /> : <path d="M2 1h2v8H2zM6 1h2v8H6z" />}
+              </svg>
+            </button>
+          )}
           {visible.map((slide, index) => (
             <button
               key={slide.id}

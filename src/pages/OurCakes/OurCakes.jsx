@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import SEO from "../../components/SEO/SEO";
 import CategoryFilter from "../../components/CategoryFilter/CategoryFilter";
@@ -60,6 +60,44 @@ export default function OurCakes() {
     setSearchParams(next);
   };
 
+  // While the details popup is open: Escape closes it, the page behind does not scroll,
+  // and focus moves to the close button (then returns to where it was).
+  const closeButtonRef = useRef(null);
+  const dialogRef = useRef(null);
+  useEffect(() => {
+    if (!selectedCake) return undefined;
+    const previouslyFocused = document.activeElement;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeDetails();
+        return;
+      }
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      // Keep Tab / Shift+Tab inside the popup
+      const focusable = dialogRef.current.querySelectorAll("a[href], button:not([disabled])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+      previouslyFocused?.focus?.();
+    };
+    // closeDetails only reads the current search params, which change together with selectedCake
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCake?.id]);
+
   return (
     <>
       <SEO
@@ -100,10 +138,25 @@ export default function OurCakes() {
             />
           </div>
 
+          <p className="our-cakes__count" role="status">
+            {filteredCakes.length} {filteredCakes.length === 1 ? "cake" : "cakes"}
+            {search.trim() ? ` matching “${search.trim()}”` : ""}
+          </p>
+
           {filteredCakes.length === 0 ? (
-            <p className="our-cakes__empty">
-              No cakes match that search just yet — try another term, or send us a custom request.
-            </p>
+            <div className="our-cakes__empty">
+              <p>No cakes match that just yet — try another term, or send us a custom request.</p>
+              <div className="our-cakes__empty-actions">
+                {search && (
+                  <button type="button" className="btn btn-secondary btn-sm" onClick={() => setSearch("")}>
+                    Clear search
+                  </button>
+                )}
+                <Link to="/custom-order" className="btn btn-primary btn-sm">
+                  Request a custom cake
+                </Link>
+              </div>
+            </div>
           ) : (
             <div className="cake-grid our-cakes__grid" key={activeCategory}>
               {filteredCakes.map((cake) => (
@@ -116,13 +169,19 @@ export default function OurCakes() {
 
       {selectedCake && (
         <div className="cake-detail__overlay" role="dialog" aria-modal="true" aria-label={selectedCake.name} onClick={closeDetails}>
-          <div className="cake-detail" onClick={(e) => e.stopPropagation()}>
-            <button className="cake-detail__close" aria-label="Close details" onClick={closeDetails}>
+          <div className="cake-detail" ref={dialogRef} onClick={(e) => e.stopPropagation()}>
+            <button ref={closeButtonRef} type="button" className="cake-detail__close" aria-label="Close details" onClick={closeDetails}>
               ×
             </button>
-            <CakeImage src={selectedCake.image} name={selectedCake.name} alt={`${selectedCake.name} cake`} ratio="1 / 1" className="cake-detail__image" />
+            <CakeImage src={selectedCake.image} name={selectedCake.name} alt={`${selectedCake.name} cake`} ratio="4 / 5" className="cake-detail__image" />
             <div className="cake-detail__body">
-              <span className="cake-detail__category">{getCategoryLabel(selectedCake.categories[0])}</span>
+              <div className="cake-detail__tags">
+                {selectedCake.categories.map((slug) => (
+                  <span className="cake-detail__category" key={slug}>
+                    {getCategoryLabel(slug)}
+                  </span>
+                ))}
+              </div>
               <h2>{selectedCake.name}</h2>
               <p className="cake-detail__meta">
                 {selectedCake.flavour !== selectedCake.name && <span>{selectedCake.flavour} • </span>}

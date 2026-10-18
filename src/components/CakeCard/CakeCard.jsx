@@ -13,7 +13,7 @@ export default function CakeCard({ cake }) {
         <h3 className="cake-card__name">{cake.name}</h3>
         <p className="cake-card__meta">
           {cake.flavour !== cake.name && <span>{cake.flavour}</span>}
-          <span className="cake-card__size">{cake.size}</span>
+          {cake.size !== "Custom size" && <span className="cake-card__size">{cake.size}</span>}
         </p>
         <p className={`cake-card__price ${typeof cake.price === "number" ? "" : "cake-card__price--quote"}`}>
           {formatPrice(cake.price)}

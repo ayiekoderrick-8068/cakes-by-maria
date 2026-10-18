@@ -33,9 +33,33 @@
   animation: grid-fade-in 360ms ease both;
 }
 
+.our-cakes__count {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .our-cakes__empty {
   text-align: center;
   padding: 40px 0;
+}
+
+.our-cakes__empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cake-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.cake-detail__tags .cake-detail__category {
+  margin-bottom: 0;
 }
 
 .cake-detail__overlay {
@@ -66,8 +90,8 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: none;
   background: var(--color-white);

@@ -18,6 +18,11 @@
   box-shadow: var(--shadow-md);
 }
 
+.gallery-grid__link {
+  display: block;
+  cursor: pointer;
+}
+
 .gallery-grid__empty {
   text-align: center;
   padding: 40px 0;
