@@ -57,6 +57,7 @@ import raspberry31Img from "../assets/gallery/raspberry-chocolate-31st.jpg";
 import purpleGoldLeafImg from "../assets/gallery/purple-gold-leaf.jpg";
 import blackCopperImg from "../assets/gallery/black-copper-drip.jpg";
 import g10Img from "../assets/gallery/g10-brotherhood.jpg";
+import greenChocolateDripImg from "../assets/cakes/green-chocolate-drip-cake.jpg";
 import pinkBlueGraduationImg from "../assets/cakes/pink-blue-graduation-two-tier.jpg";
 import blueWhiteCelebrationImg from "../assets/cakes/blue-white-congrats-celebration.jpg";
 import redOrangeNumberImg from "../assets/cakes/red-orange-number-cakes-18-17.jpg";
@@ -84,8 +85,7 @@ export const signatureCakes = [
   { id: "chocolate-popsicle", name: "Chocolate Popsicle", flavour: "Chocolate", size: "Each", price: 200, categories: ["treats"], featured: false, image: cakesiclesImg },
   { id: "cake-pops", name: "Cake Pops", flavour: "Assorted", size: "Each", price: 100, categories: ["treats"], featured: false, image: cakePopsImg },
   ...[
-    // No photo supplied yet for the green drip cake: it shows the branded placeholder until one is added to src/assets/cakes.
-    { id: "green-chocolate-drip", name: "Green Chocolate Drip Cake", price: 2000, categories: ["birthday"], description: "Beautifully decorated celebration cake with green buttercream borders and elegant chocolate drip detailing." },
+    { id: "green-chocolate-drip", name: "Green Chocolate Drip Cake", price: 2000, categories: ["birthday"], image: greenChocolateDripImg, alt: "Round white buttercream cake with bright green piped borders and a black chocolate drip", description: "Beautifully decorated celebration cake with green buttercream borders and elegant chocolate drip detailing." },
     { id: "blue-white-celebration", name: "Blue & White Celebration Cake", price: 4000, categories: ["celebration"], image: blueWhiteCelebrationImg, alt: "Round blue-and-white buttercream cake with blue rosettes and a “Congrats Liam” message", description: "Elegant blue-and-white celebration cake with floral frosting details, perfect for special occasions." },
     { id: "pink-blue-graduation", name: "Pink & Blue Graduation Cake", price: 5800, categories: ["graduation"], image: pinkBlueGraduationImg, alt: "Two-tier pink and blue buttercream cake topped with a black graduation cap", description: "Two-tier graduation cake with vibrant pink-and-blue buttercream and a graduation cap decoration." },
     { id: "red-orange-number-cakes", name: "Red & Orange Number Cake", price: 2400, categories: ["number", "birthday"], image: redOrangeNumberImg, alt: "Red 18 cake and orange 17 cake decorated with buttercream rosettes and pearls", description: "Personalized number cake with colorful buttercream flowers, ideal for birthdays and milestone celebrations." },
