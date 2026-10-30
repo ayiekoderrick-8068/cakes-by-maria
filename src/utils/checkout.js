@@ -58,7 +58,8 @@ export function isQuotedCake(cake) {
 export function priceSummary(cake, order) {
   if (typeof cake.price !== "number") return "Price on request — to be confirmed by Maria";
   if (cake.categories.includes("custom")) return `${formatPrice(cake.price)} (custom design — to be confirmed by Maria)`;
-  const listed = `${formatPrice(cake.price)} (listed for ${cake.size})`;
+  if (cake.size === "Custom size") return `${formatPrice(cake.price)} (starting price — to be confirmed by Maria)`;
+  const listed =`${formatPrice(cake.price)} (listed for ${cake.size})`;
   return order.size && order.size !== cake.size ? `${listed} — price for ${order.size} to be confirmed` : listed;
 }
 

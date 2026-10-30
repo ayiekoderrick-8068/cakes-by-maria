@@ -39,6 +39,8 @@ export const categoryLabels = {
   bridal: "Bridal Shower",
   corporate: "Corporate",
   bento: "Bento",
+  celebration: "Celebration",
+  number: "Number",
 };
 
 /**
@@ -51,6 +53,8 @@ export const cakeFilters = [
   { slug: "wedding", label: "Wedding", tags: ["wedding"] },
   { slug: "baby-shower", label: "Baby Shower", tags: ["baby-shower"] },
   { slug: "graduation", label: "Graduation", tags: ["graduation"] },
+  { slug: "celebration", label: "Celebration", tags: ["celebration"] },
+  { slug: "number", label: "Number Cakes", tags: ["number"] },
   { slug: "anniversary", label: "Anniversary", tags: ["anniversary"] },
   { slug: "kids", label: "Kids", tags: ["kids"] },
   { slug: "custom", label: "Custom", tags: ["custom"] },

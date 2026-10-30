@@ -7,7 +7,7 @@ import { categoryLabels } from "../../data/categories";
 export default function CakeCard({ cake }) {
   return (
     <article className="cake-card">
-      <CakeImage src={cake.image} name={cake.name} alt={`${cake.name} cake`} className="cake-card__image" />
+      <CakeImage src={cake.image} name={cake.name} alt={cake.alt ?? `${cake.name} cake`} className="cake-card__image" />
       <div className="cake-card__body">
         <span className="cake-card__category">{categoryLabels[cake.categories[0]] ?? cake.categories[0]}</span>
         <h3 className="cake-card__name">{cake.name}</h3>

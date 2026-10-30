@@ -173,7 +173,7 @@ export default function OurCakes() {
             <button ref={closeButtonRef} type="button" className="cake-detail__close" aria-label="Close details" onClick={closeDetails}>
               ×
             </button>
-            <CakeImage src={selectedCake.image} name={selectedCake.name} alt={`${selectedCake.name} cake`} ratio="4 / 5" className="cake-detail__image" />
+            <CakeImage src={selectedCake.image} name={selectedCake.name} alt={selectedCake.alt ?? `${selectedCake.name} cake`} ratio="4 / 5" className="cake-detail__image" />
             <div className="cake-detail__body">
               <div className="cake-detail__tags">
                 {selectedCake.categories.map((slug) => (
@@ -188,6 +188,10 @@ export default function OurCakes() {
                 {selectedCake.size}
               </p>
               <p className="cake-detail__price">{formatPrice(selectedCake.price)}</p>
+              {selectedCake.description && <p className="cake-detail__description">{selectedCake.description}</p>}
+              <p className="cake-detail__customisation">
+                Customization: contact us for customization options. You can add a personalized message when you order.
+              </p>
               <Link to={`/checkout?cake=${selectedCake.id}`} className="btn btn-primary btn-block">
                 Order This Cake
               </Link>

@@ -142,7 +142,7 @@ function CheckoutFlow({ cake }) {
       <section className="section checkout">
         <div className="container checkout__layout">
           <aside className="checkout__summary" aria-label="Selected cake">
-            <CakeImage src={cake.image} name={cake.name} alt={`${cake.name} cake`} ratio="4 / 3" className="checkout__image" />
+            <CakeImage src={cake.image} name={cake.name} alt={cake.alt ?? `${cake.name} cake`} ratio="4 / 3" className="checkout__image" />
             <div className="checkout__summary-body">
               <span className="checkout__category">{categoryLabel}</span>
               <h2>{cake.name}</h2>

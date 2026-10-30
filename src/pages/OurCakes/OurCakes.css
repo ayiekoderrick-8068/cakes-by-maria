@@ -136,6 +136,16 @@
   margin-bottom: 18px;
 }
 
+.cake-detail__description {
+  margin-bottom: 12px;
+}
+
+.cake-detail__customisation {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
 @media (min-width: 720px) {
   .cake-detail {
     grid-template-columns: 1fr 1fr;
